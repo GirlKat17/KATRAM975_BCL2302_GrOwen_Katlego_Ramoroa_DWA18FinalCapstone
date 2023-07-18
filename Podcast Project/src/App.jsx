@@ -9,17 +9,17 @@ import './App.css'
 
 
 
+
+
 import React, { useState, useEffect } from 'react';
 
-// Define the App component
-function App() {
+
+const PodcastApp = () => {
+  const [loading, setLoading] = useState(true);
   const [shows, setShows] = useState([]);
   const [selectedShow, setSelectedShow] = useState(null);
   const [selectedSeason, setSelectedSeason] = useState(null);
-  const [episodes, setEpisodes] = useState([]);
-  const [favorites, setFavorites] = useState([]);
 
-  // Fetch the list of shows
   useEffect(() => {
     fetchShows();
   }, []);
@@ -29,112 +29,88 @@ function App() {
       const response = await fetch('https://podcast-api.netlify.app/shows');
       const data = await response.json();
       setShows(data);
+      setLoading(false);
     } catch (error) {
-      console.log('Error fetching shows:', error);
+      console.error('Error fetching shows:', error);
     }
   };
 
-  // Fetch episodes for a selected season
-  useEffect(() => {
-    if (selectedSeason) {
-      fetchEpisodes(selectedSeason);
-    }
-  }, [selectedSeason]);
-
-  const fetchEpisodes = async (seasonId) => {
+  const fetchShowDetails = async (showId) => {
     try {
-      const response = await fetch(`https://podcast-api.netlify.app/id/${seasonId}`);
+      setLoading(true);
+      const response = await fetch(`https://podcast-api.netlify.app/id/${showId}`);
       const data = await response.json();
-      setEpisodes(data.episodes);
+      setSelectedShow(data);
+      setSelectedSeason(null);
+      setLoading(false);
     } catch (error) {
-      console.log('Error fetching episodes:', error);
+      console.error('Error fetching show details:', error);
     }
   };
 
-  // Handle selecting a show
-  const selectShow = (show) => {
-    setSelectedShow(show);
-    setSelectedSeason(null);
+  const handleShowClick = (showId) => {
+    fetchShowDetails(showId);
   };
 
-  // Handle selecting a season
-  const selectSeason = (season) => {
-    setSelectedSeason(season.id);
+  const handleSeasonClick = (seasonNumber) => {
+    setSelectedSeason(seasonNumber);
   };
 
-  // Handle marking an episode as favorite
-  const markAsFavorite = (episode) => {
-    setFavorites([...favorites, episode]);
-  };
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  // Handle removing an episode from favorites
-  const removeFromFavorites = (episode) => {
-    const updatedFavorites = favorites.filter((favEpisode) => favEpisode.id !== episode.id);
-    setFavorites(updatedFavorites);
-  };
+  if (!selectedShow) {
+    return (
+      <div className="container">
+        <h1>Podcast App</h1>
+        <ul className="cards">
+          {shows.map((show) => (
+            <li className="card" key={show.id} onClick={() => handleShowClick(show.id)}>
+              <div className="image">
+                <img src={show.previewImage} alt={show.title} />
+                <div className="dots">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+              <div className="infos">
+                <span className="name">{show.title}</span>
+                <span className="lorem">{show.seasons.length} Seasons</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 
   return (
-    <div className="img">
-      {/* Render the list of shows */}
-      {shows.map((show) => (
-        <div key={show.id}>
-          <h2>{show.title}</h2>
-          <img src={show.image} alt={show.title} />
-          {/* Add other show details */}
-          <button onClick={() => selectShow(show)}>View Details</button>
+    <div className="container">
+      <button onClick={() => setSelectedShow(null)}>Back to Show List</button>
+      <h2>{selectedShow.title}</h2>
+      {selectedShow.seasons.map((season) => (
+        <div key={season.number}>
+          <h3>Season {season.number}</h3>
+          {selectedSeason === season.number ? (
+            <ul>
+              {season.episodes.map((episode) => (
+                <li key={episode.id}>{episode.title}</li>
+              ))}
+            </ul>
+          ) : (
+            <div>
+              <img src={season.previewImage} alt={`Season ${season.number}`} />
+              <div>{season.episodes.length} Episodes</div>
+              <button onClick={() => handleSeasonClick(season.number)}>View Episodes</button>
+            </div>
+          )}
         </div>
       ))}
-
-      {/* Render the selected show details */}
-      {selectedShow && (
-        <div>
-          <h2>{selectedShow.title}</h2>
-          <img src={selectedShow.image} alt={selectedShow.title} />
-          {/* Add other show details */}
-          {/* Render the list of seasons */}
-          {selectedShow.seasons.map((season) => (
-            <div key={season.id}>
-              <h3>{season.title}</h3>
-              <img src={season.image} alt={season.title} />
-              {/* Add other season details */}
-              <button onClick={() => selectSeason(season)}>View Episodes</button>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Render the selected season episodes */}
-      {selectedSeason && (
-        <div>
-          <h3>Episodes</h3>
-          {/* Render the list of episodes */}
-          {episodes.map((episode) => (
-            <div key={episode.id}>
-              <h4>{episode.title}</h4>
-              <img src={episode.image} alt={episode.title} />
-              {/* Add other episode details */}
-              <button onClick={() => markAsFavorite(episode)}>Add to Favorites</button>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Render the list of favorite episodes */}
-      <div>
-        <h3>Favorites</h3>
-        {/* Render the list of favorite episodes */}
-        {favorites.map((episode) => (
-          <div key={episode.id}>
-            <h4>{episode.title}</h4>
-            <img src={episode.image} alt={episode.title} />
-            {/* Add other episode details */}
-            <button onClick={() => removeFromFavorites(episode)}>Remove from Favorites</button>
-          </div>
-        ))}
-      </div>
     </div>
   );
-}
+};
 
-export default App;
+export default PodcastApp;
 
