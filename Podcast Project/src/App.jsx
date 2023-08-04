@@ -7,6 +7,7 @@ import Login from './Login';
 // import LoginPage from './database';
 import Fav from './DisplayFav';
 import logo from '../src/image/kat.png';
+import RandomImageCarousel from './float';
 
 
 
@@ -151,6 +152,7 @@ const [userEmail, setUserEmail] = useState('')
         </div>
         <div className='tlhogo'>
             <img className='logoimg' src={logo} alt="logoo" /> {/* Use the imported logo variable */}
+            {/* <RandomImageCarousel/> */}
             <h1 className='topName'> Kat Podcast </h1>
           
          <div className='look'>
