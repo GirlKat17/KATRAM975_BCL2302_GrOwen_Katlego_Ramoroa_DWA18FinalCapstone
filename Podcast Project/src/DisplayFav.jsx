@@ -27,23 +27,29 @@ const Fav = () => {
   }, []);
 
   return (
-    <div className="rati">
+    
+   
+    <div className="col-sm-6 mb-3">
       <h3>Favourite</h3>
+
       {fetchError && <p>{fetchError}</p>}
       {favourites.length > 0 && (
-
-        <div className="rati2">
+        <div className="card">
           {favourites.map((fav) => (
-            <div key={fav.id}>
-              <p>Season: {fav.Season}</p>
-              <p>Episode: {fav.EpisodeTitle}</p>
-              <p>Episode Number: {fav.EpisodeNumber}</p>
+            <div key={fav.id} className="card-body">
+              <p className="card-title">Season: {fav.Season}</p>
+              <p className="card-text">Episode: {fav.EpisodeTitle}</p>
+              <p className="card-text">Episode Number: {fav.EpisodeNumber}</p>
             </div>
           ))}
         </div>
       )}
-    </div>
-  );
+    
+  </div>
+
+  
+);
 };
 
 export default Fav;
+

@@ -1,29 +1,26 @@
-// import  { useState } from "react";
+import  { useState } from 'react';
 
-// const ReadMoreLess = ({ limit, shownRead }) => {
-//   const text = shownRead;
-//   const [isReadMoreShown, setReadMoreShown] = useState(false);
+const ReadMoreButton = ({ content }) => {
+  const [showFullContent, setShowFullContent] = useState(false);
 
-//   const toggleBtn = () => {
-//     setReadMoreShown((prevState) => !prevState);
-//   };
+  const handleToggleContent = () => {
+    setShowFullContent(!showFullContent);
+  };
 
-//   return (
-//     <div>
-//       {isReadMoreShown ? text : text.substr(0, limit)}
-//       {text.length > limit && (
-//         <button onClick={toggleBtn}>
-//           {isReadMoreShown ? "Read Less" : "Read More"}
-//         </button>
-//       )}
-//     </div>
-//   );
-// };
+  const displayContent = showFullContent ? content : content.slice(0, 50);
 
-// ReadMoreLess.defaultProps = {
-//   limit: 100, // Set your desired default value for 'limit' here
-//   shownRead: "", // Set your desired default value for 'shownRead' here
-// };
+  return (
+    <div>
+      <p>{displayContent}</p>
+      {content.length > 50 && (
+        <button onClick={handleToggleContent}>
+          {showFullContent ? 'Read Less' : 'Read More'}
+        </button>
+      )}
+    </div>
+  );
+};
 
-// export default ReadMoreLess;
+export default ReadMoreButton;
+
 

@@ -62,12 +62,13 @@ p{
 
  img{
   width: 200px;
-  height: 5%;
+  height: 200px;
   display: flex; 
   transform-style: preserve-3d; 
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.5);
 } 
 
 
@@ -130,13 +131,13 @@ li {
 .image-lay{
 
     border-radius: 5px;
-    box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.5);
+
     margin-top: 23px;
     width: 250px;
     height: 250px;
     object-fit: cover;
 }
-.image-lay img{
+.image-lay {
   height: 250px;
   width: 250px;
 }
@@ -224,13 +225,7 @@ li {
     transition: all .7s ease;
 }
 
-/* .card .socials{ */
 
-    /* display: flex; */
-    /* justify-content: space-between; */
-    /* align-items: center; */
-    /* padding-top: 20px; */
-/* } */
 
 .socials i{
 
@@ -253,6 +248,7 @@ li {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  position: center;
   overflow: hidden;
 
   transition: transform .5s ease, height .2s ease;
@@ -285,8 +281,9 @@ li .card{
 }
 
 .logoimg{
-  width: 100px;
-  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 20px;
 }
 
 .tlhogo {
@@ -303,9 +300,9 @@ flex-direction: column;
 }
 
 .rati2{
-  display: grid;
+  
   grid-template-columns: 0.7fr 0.7fr 0.7fr;
-  background-image: url(./image/back.png);
+  background-image: url();
   background-repeat: no-repeat;
   background-size: cover;
   align-items: center;
@@ -320,7 +317,7 @@ flex-direction: column;
 .containeer li{
   background-color: #858385;
 }
-.hero-section {
+/* .hero-section {
   position: relative;
   display: flex;
   align-items: center;
@@ -334,8 +331,7 @@ flex-direction: column;
   max-width: 1000px;
 }
 .show-info {
-  display: flex;
-  transition: transform 0.3s ease-in-out;
+  
 }
 .carousel-slide {
   width: 200px;
@@ -347,7 +343,7 @@ flex-direction: column;
 .carousel-slide img {
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
+
 }
 .arrow-icon {
   font-size: 40px;
@@ -361,4 +357,143 @@ flex-direction: column;
 }
 .forward {
   right: 10px;
+} */
+
+/* CSS for the RandomImageCarousel component */
+.carousel-inner {
+  position: relative;
+}
+
+.carousel-item {
+  display: none;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-slide {
+  width: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carousel-container {
+  overflow: hidden;
+  position:center;
+  width: 100%;
+  max-width: 200px;
+}
+.carousel-slide img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.carousel-caption {
+  display: none;
+}
+
+/* .carousel-caption h5 {
+
+} */
+
+.carousel-control-prev,
+.carousel-control-next {
+  font-size: 40px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+/* CSS for the Bootstrap card layout */
+.card {
+  max-width: 750px;
+  max-height: 700px;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text-body-secondary {
+  color: #6c757d;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+
+}
+
+.rounded-start {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+/* CSS for the Bootstrap card layout */
+.row {
+  display: grid; 
+   grid-template-columns: 0.7fr 0.7fr 0.7fr; 
+  flex-wrap: wrap;
+  margin: 0 -15px; 
+  background-color: #fbfbfb; 
+   border: 1px solid rgba(0, 0, 0, 0.125);
+   border-radius: 0.25rem;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  
+}
+
+.col-sm-6 {
+  flex: 0 0 50%;
+  padding: 0 15px;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 8px rgba(23, 18, 18, 0.1);
+}
+
+.card-body {
+  padding: 1rem;
+  background-color: #f8fafa;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  /* border-radius: 0.25rem; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }

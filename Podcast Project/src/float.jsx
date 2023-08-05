@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const RandomImageCarousel = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     fetch('https://podcast-api.netlify.app/shows') // Update the API URL here
@@ -23,38 +22,32 @@ const RandomImageCarousel = () => {
       });
   }, []);
 
-  const handlePrevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === 0 ? images.length - 1 : prevSlide - 1));
-  };
-
-  const handleNextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === images.length - 1 ? 0 : prevSlide + 1));
-  };
-
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="hero-section">
-      <div className="carousel-container">
-        <div className="show-info">
-          {images.map((imageItem, index) => (
-            <div key={index} className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}>
-              <img src={imageItem.image} alt={`Slide ${index}`} />
-              <div className="carousel-caption d-none d-md-block">
-                <h5>{imageItem.title}</h5>
-              </div>
+    <div className='carousel-container '>
+    <div id="randomImageCarousel" className="carousel slide" data-bs-ride="carousel">
+      <div className="carousel-inner">
+        {images.map((imageItem, index) => (
+          <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+            <img src={imageItem.image} className="d-block w-100" alt={`Slide ${index}`} />
+            <div className="carousel-caption d-none d-md-block">
+              <h5>{imageItem.title}</h5>
             </div>
-          ))}
-        </div>
-        <div className="arrow-icon backward" onClick={handlePrevSlide}>
-          &lt;
-        </div>
-        <div className="arrow-icon forward" onClick={handleNextSlide}>
-          &gt;
-        </div>
+          </div>
+        ))}
       </div>
+      <button className="carousel-control-prev" type="button" data-bs-target="#randomImageCarousel" data-bs-slide="prev" key="prev">
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Previous</span>
+      </button>
+      <button className="carousel-control-next" type="button" data-bs-target="#randomImageCarousel" data-bs-slide="next" key="next">
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Next</span>
+      </button>
+    </div>
     </div>
   );
 };

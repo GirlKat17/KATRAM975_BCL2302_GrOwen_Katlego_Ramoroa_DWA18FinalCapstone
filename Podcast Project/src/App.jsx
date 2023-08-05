@@ -4,12 +4,10 @@ import Search from './Search';
 import { supabase } from './Login';
 import './app.css'
 import Login from './Login';
-// import LoginPage from './database';
 import Fav from './DisplayFav';
 import logo from '../src/image/kat.png';
 import RandomImageCarousel from './float';
-
-
+import ReadMoreButton from './ReadMore';
 
 const PodcastApp = () => {
   const [loading, setLoading] = useState(true);
@@ -48,6 +46,7 @@ const PodcastApp = () => {
     fetchShows();
   }, []);
 
+// fetch for my shows 
   const fetchShows = async () => {
     try {
       const response = await fetch('https://podcast-api.netlify.app/shows');
@@ -58,7 +57,7 @@ const PodcastApp = () => {
       console.error('Error fetching shows:', error);
     }
   };
-
+//  fetch for my seasons and episodes
   const fetchShowDetails = async (showId) => {
     try {
       setLoading(true);
@@ -84,6 +83,8 @@ const PodcastApp = () => {
  
 console.log(favourite.favouriteShow)
 
+//  my handles function
+
   const handleSeasonClick = (seasonNumber) => {
     setSelectedSeason(seasonNumber);
   };
@@ -96,9 +97,7 @@ console.log(favourite.favouriteShow)
     setSortBy(event.target.value);
   };
 
-
-
-
+// useEffect for sort and search
   useEffect(() => {
     const updateFilteredShows = () => {
       let filteredShows = shows.filter((show) =>
@@ -119,7 +118,7 @@ console.log(favourite.favouriteShow)
     updateFilteredShows();
   }, [shows, searchQuery, sortBy]);
 
- 
+//  my useState and Authentication to my database and email
 const [userEmail, setUserEmail] = useState('')
  React.useEffect(() => {
     const authListener = supabase.auth.onAuthStateChange((event, session) => {
@@ -137,9 +136,6 @@ const [userEmail, setUserEmail] = useState('')
   }
 
 
-
-
-
   if (!selectedShow) {
     return (
       <div className="container">
@@ -148,14 +144,17 @@ const [userEmail, setUserEmail] = useState('')
 
 
           </nav>
-          {/* <Login/> */}
+       
         </div>
         <div className='tlhogo'>
             <img className='logoimg' src={logo} alt="logoo" /> {/* Use the imported logo variable */}
-            {/* <RandomImageCarousel/> */}
+            
             <h1 className='topName'> Kat Podcast </h1>
           
          <div className='look'>
+
+
+  {/* this is where i add my search component */}
           <Search
               searchQuery={searchQuery}
               handleSearchChange={handleSearchChange}
@@ -164,30 +163,42 @@ const [userEmail, setUserEmail] = useState('')
             />
          </div>
         </div>
+        
 
         { isLoggedIn === "signUpPhase" && <Login /> }
         { isLoggedIn === 'startPhase' && 
-        <ul className="cards">
-          {/* <button onClick={setIsLoggedIn('signUpPhase')}>logout</button> */}
+        
+        <div className="">
+          
           {filteredShows.map((show) => (
-            <li className="card" key={show.id} >
-              <div className="image-lay">
-                <img src={show.image} alt={show.title} key={show.id} title={show.title} id={show.id} onClick={handleShowClick} />
-              </div>
-              <div className="infos">
-                <span className="name">{show.title}</span>
-                <span className="pop">Seasons: {show.seasons}</span>
-                <span>{show.genres.map((genreId) => genreTitleMapping[genreId]).join(', ')}</span>
-                <span>Date: {new Date(show.updated).toLocaleDateString()}</span>
-              </div>
-            </li>
+
+// Display all my shows upon Login
+<div className="card mb-3"  key={show.id} >
+  <div className="row g-0">
+  <div className="col-md-4">
+   <img src={show.image} alt={show.title} key={show.id} title={show.title} id={show.id} onClick={handleShowClick} />
+  </div>
+    <div className="col-md-8">
+     <div className="card-body">
+        <h5 className="card-title">{show.title}</h5>
+        <ReadMoreButton   
+         
+          content={show.description}
+          />
+<span className="pop">Seasons: {show.seasons}</span> 
+ <span>{show.genres.map((genreId) => genreTitleMapping[genreId]).join(', ')}</span>
+   <p className="card-text"><small className="text-body-secondary">Date: {new Date(show.updated).toLocaleDateString()}</small></p>
+  </div>
+ </div>
+ </div>
+</div>
           ))}
-        </ul>
+        </div>
   }
       </div>
     );
   }
-  
+// To get info from my databas
   const addToFavourites = async (e) => { 
           const Season = favourite.favouriteShow
         const EpisodeTitle = e.target.getAttribute('data-title')
@@ -214,10 +225,6 @@ const [userEmail, setUserEmail] = useState('')
         }
       };
   
-
-
-
-
   return (
     <>
     {showFav === 'favouritePhase' && <Fav/>} 

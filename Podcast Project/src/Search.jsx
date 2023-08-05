@@ -18,7 +18,7 @@ const Search = ({ searchQuery, handleSearchChange, sortBy, handleSortChange }) =
       <input type="text" placeholder="Search shows" value={searchQuery} onChange={handleSearchChange} />
 
       <select value={sortBy} onChange={handleSortChange}>
-        <option value="title">Sort by Title</option>
+        <option value="title">Sort A - Z</option>
         <option value="genre">Sort by Genre</option>
         <option value="date">Sort by Date</option>
       </select>
