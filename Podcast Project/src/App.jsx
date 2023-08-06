@@ -149,7 +149,8 @@ const [userEmail, setUserEmail] = useState('')
         <div className='tlhogo'>
             <img className='logoimg' src={logo} alt="logoo" /> {/* Use the imported logo variable */}
             
-            <h1 className='topName'> Kat Podcast </h1>
+            <h1 className='topName'> Multiverse Podcast</h1>
+           
           
          <div className='look'>
 
@@ -169,7 +170,7 @@ const [userEmail, setUserEmail] = useState('')
         { isLoggedIn === 'startPhase' && 
         
         <div className="">
-          
+          <RandomImageCarousel/>
           {filteredShows.map((show) => (
 
 // Display all my shows upon Login

@@ -16,6 +16,7 @@ export const supabase = createClient(
 export default function Login () {
 
   return (
+    <div className='LoginBack'>
 
   <div className= "login">
       <header className= "App-Header">
@@ -27,6 +28,7 @@ export default function Login () {
 
     />
       </header>
+  </div>
   </div>
   )
 }

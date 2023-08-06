@@ -28,7 +28,7 @@ const Fav = () => {
 
   return (
     
-   
+  
     <div className="col-sm-6 mb-3">
       <h3>Favourite</h3>
 
@@ -46,6 +46,7 @@ const Fav = () => {
       )}
     
   </div>
+  
 
   
 );
