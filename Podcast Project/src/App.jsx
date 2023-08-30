@@ -70,7 +70,7 @@ const PodcastApp = () => {
       console.error('Error fetching show details:', error);
     }
   };
-
+//  my functions for 
   const handleShowClick = (event) => {
     const title = event.target.title
     const id = event.target.id
@@ -142,7 +142,6 @@ const [userEmail, setUserEmail] = useState('')
         <div>
           <nav className="senka">
 
-
           </nav>
        
         </div>
@@ -165,7 +164,7 @@ const [userEmail, setUserEmail] = useState('')
          </div>
         </div>
         
-
+{/* This where i redirect my login page */}
         { isLoggedIn === "signUpPhase" && <Login /> }
         { isLoggedIn === 'startPhase' && 
         
@@ -173,7 +172,8 @@ const [userEmail, setUserEmail] = useState('')
           <RandomImageCarousel/>
           {filteredShows.map((show) => (
 
-// Display all my shows upon Login
+// Display all my shows upon Login, my podcast page
+
 <div className="card mb-3"  key={show.id} >
   <div className="row g-0">
   <div className="col-md-4">
@@ -182,6 +182,8 @@ const [userEmail, setUserEmail] = useState('')
     <div className="col-md-8">
      <div className="card-body">
         <h5 className="card-title">{show.title}</h5>
+        {/*  added my read more component  */}
+
         <ReadMoreButton   
          
           content={show.description}
@@ -199,7 +201,7 @@ const [userEmail, setUserEmail] = useState('')
       </div>
     );
   }
-// To get info from my databas
+// To get info from my database for my favourites 
   const addToFavourites = async (e) => { 
           const Season = favourite.favouriteShow
         const EpisodeTitle = e.target.getAttribute('data-title')
@@ -227,10 +229,12 @@ const [userEmail, setUserEmail] = useState('')
       };
   
   return (
+    // redirect to the users Favourite
     <>
     {showFav === 'favouritePhase' && <Fav/>} 
   { showFav !== 'favouritePhase' &&
     <>
+    {/* This my page for showing all the season and episodes  */}
    <div className="containeer">
     <button onClick={() => setSelectedShow(null)}>Back to Show List</button>
     <h2>{selectedShow.title}</h2>
@@ -247,6 +251,8 @@ const [userEmail, setUserEmail] = useState('')
                 <audio controls>
                   <source src={episode.file} />
                 </audio>
+                {/* this the button for my fav  */}
+
                  <button data-title ={episode.title} 
                          data-file ={episode.file} 
                          data-description = {episode.description} 
@@ -258,6 +264,8 @@ const [userEmail, setUserEmail] = useState('')
           </ul>
         ) : (
           <div>
+            {/*  displays the number of season per show */}
+
             <img src={season.image} alt={`Season ${season.number}`} />
             <div>{season.episodes.length} Episodes</div>
             <button onClick={() => handleSeasonClick(season.number)}>View Episodes</button>

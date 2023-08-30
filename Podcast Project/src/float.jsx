@@ -26,7 +26,7 @@ const RandomImageCarousel = () => {
     return <div>Loading...</div>;
   }
 
-  // Group the images into sets of 4
+  // Group the images into sets of 4 upon display
   const groupedImages = [];
   const chunkSize = 4;
   for (let i = 0; i < images.length; i += chunkSize) {
@@ -52,6 +52,7 @@ const RandomImageCarousel = () => {
             </div>
           ))}
         </div>
+        {/* my button turned into arrow  */}
         <button className="carousel-control-prev" type="button" data-bs-target="#randomImageCarousel" data-bs-slide="prev" key="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Previous</span>

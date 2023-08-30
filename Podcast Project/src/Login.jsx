@@ -16,6 +16,7 @@ export const supabase = createClient(
 export default function Login () {
 
   return (
+    //  This is the layout for my login before you get to the main podcast page
     <div className='LoginBack'>
 
   <div className= "login">

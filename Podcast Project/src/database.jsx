@@ -31,6 +31,7 @@ function DataInput() {
   };
 
   return (
+    // my inputs for my forms
     <div>
       <input
         type="email"
