@@ -1,4 +1,4 @@
-#root {
+/* #root {
     max-width: 1600px;  
    
 
@@ -21,8 +21,8 @@
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
-}
-
+} */
+/* 
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
@@ -55,7 +55,7 @@
 
 body {
   /* background-image:url(https://img.freepik.com/free-photo/microphone-with-headphones-copy-space_23-2148681150.jpg?w=996&t=st=1691138889~exp=1691139489~hmac=c89ce014f9fcdba824cd00153cc4063aaa4946bd4f8664917929f6c3a6fd605c); */
-  display: flex; 
+  /* display: flex; 
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
@@ -64,8 +64,8 @@ body {
   font-family: 'Urbanist', sans-serif;
   text-decoration-color: aliceblue;
 
-}
-p{
+} */
+/* p{
   width: 100%;
 }
 
@@ -86,7 +86,7 @@ p{
 a{
 
   text-decoration: none;
-}
+} */
 
 
 
@@ -97,7 +97,7 @@ a{
 
 
 
-.cards {
+/* .cards {
 
     position: relative;
     height: 250px;
@@ -117,11 +117,11 @@ a{
     margin: auto;
     cursor: pointer;
     transition: transform 0.55s ease;
-}
+} */
 /* .search-sort-container {
   display: inline;
 } */
-li {
+/* li {
     display: flex;
     flex-direction: end;
     justify-content: space-between;
@@ -154,9 +154,9 @@ li {
 .card .image .dots{
 
     text-align: center;
-}
+} */
 
-.dots div{
+/* .dots div{
 
     width: 10px;
     height: 10px;
@@ -177,9 +177,9 @@ li {
 .dots div:nth-child(3){
 
     background-color: #1e1212;
-}
+} */
 
-.cards {
+/* .cards {
 
     display: flex;
     flex-direction: column;
@@ -209,9 +209,9 @@ li {
     margin-bottom: 20px;
     padding-left: 25%;
     transition: all .6s ease;
-}
+} */
 
-.infos .pop{
+/* .infos .pop{
 
     font-size: 15.5px;
     color: #858385;
@@ -262,9 +262,9 @@ li {
   overflow: hidden;
 
   transition: transform .5s ease, height .2s ease;
-}
+} */
 
-.login input{
+/* .login input{
   width: 240px;
   height: 40px;
   background-color: #201e1e;
@@ -302,8 +302,8 @@ li .card{
   gap: 60px;
   align-items: center;
   padding: 20px;
-}
-
+} */
+/* 
 .look{
 display: flex;
 flex-direction: column;
@@ -326,7 +326,7 @@ flex-direction: column;
 
 .containeer li{
   background-color: #858385;
-}
+} */
 
 
 /* CSS for the RandomImageCarousel component */
@@ -387,7 +387,7 @@ flex-direction: column;
   right: 10px;
 }
 /* CSS for the Bootstrap card layout */
-.card {
+/* .card {
   max-width: 750px;
   max-height: 700px;
 }
@@ -422,7 +422,7 @@ flex-direction: column;
   border-bottom-left-radius: 0.25rem;
 }
 /* CSS for the Bootstrap card layout */
-.row {
+/* .row {
   display: grid; 
    grid-template-columns: 0.7fr 0.7fr 0.7fr; 
   flex-wrap: wrap;
@@ -432,14 +432,11 @@ flex-direction: column;
    border-radius: 0.25rem;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   
-}
+}  */
 
-.col-sm-6 {
-  flex: 0 0 50%;
-  padding: 0 15px;
-}
 
-.mb-3 {
+
+/* .mb-3 {
   margin-bottom: 1rem;
 }
 
@@ -453,18 +450,119 @@ flex-direction: column;
 .card-body {
   padding: 1rem;
   background-color: #f8fafa;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(0, 0, 0, 0.125); */
   /* border-radius: 0.25rem; */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-title {
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-}
+}  */
 
-.card-text {
+/* .card-text {
   font-size: 1rem;
   margin-bottom: 1rem;
+} */
+
+
+
+
+
+/* Text styles */
+.text-white {
+  color: white;
+  padding-left: 20px;
 }
+
+
+.text-white {
+  color:whitesmoke;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 16px;
+}
+
+/* Layout styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #F0F0F0;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.column {
+  flex: 1;
+  text-align: center;
+}
+img{
+  height: 300px;
+  width: 360px;
+  padding-left: 60px;
+}
+.background{
+  background-color: black;
+ 
+}
+.podcast-tile p {
+  font-size: 14px;
+  margin-top: 5px; 
+  color: #878585;
+margin-right: 950px;
+  flex: 0 0 50%;
+  padding: 0 15px;
+}
+
+
+/* Podcast Tile Layout */
+/* .podcast-tile-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+  gap: 20px; 
+}
+
+img{
+  height: 300px;
+  width: 300px;
+}
+
+.podcast-tile {
+  background-color: #f0f0f0; 
+  border-radius: 8px;
+  padding: 15px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* .podcast-tile img {
+  max-width: 100%; 
+  border-radius: 8px; 
+} */
+
+/* .podcast-tile h3 {
+  font-size: 16px;
+  margin-top: 10px; 
+} */
+
+
