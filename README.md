@@ -1,6 +1,6 @@
 # Podcast App 🎧
 
-This is a React-based Podcast Application that allows users to browse through a collection of podcasts, view details about individual shows, listen to episodes, and add their favorite episodes to their favorites list. The application utilizes React Hooks, external APIs for fetching show data, and Supabase for user authentication and storing favorite episodes.
+This is a React-based Podcast Application that allows users to browse through a collection of podcasts, view details about individual shows, listen to episodes, and add their favorite episodes to their favorites list. The application utilizes React Hooks, external APIs for fetching show data, and storing favorite episodes.
 
 ## Features 🚀
 
@@ -15,7 +15,6 @@ This is a React-based Podcast Application that allows users to browse through a 
 
 - **React**: The frontend of the application is built using React library for efficient UI rendering and state management.
 - **React Hooks**: Hooks like useState and useEffect are used for managing component state and side effects.
-- **Supabase**: Supabase is used for user authentication and storing favorite episodes in a database.
 - **APIs**: External APIs are used for fetching podcast data, including shows and episodes.
 - **CSS**: Custom CSS is used for styling the application.
 
@@ -26,10 +25,8 @@ To run the application locally, follow these steps:
 1. Clone this repository to your local machine.
 2. Navigate to the project directory in your terminal.
 3. Install dependencies by running `npm install`.
-4. Create a Supabase account and set up a new project.
-5. Configure Supabase credentials in the `Login.js` file.
-6. Start the development server by running `npm start`.
-7. Open your browser and navigate to `http://localhost:3000` to view the application.
+4. Start the development server by running `npm start`.
+5. Open your browser and navigate to `http://localhost:3000` to view the application.
 
 ## Usage 📝
 
