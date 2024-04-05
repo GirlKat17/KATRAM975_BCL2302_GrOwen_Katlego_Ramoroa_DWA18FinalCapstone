@@ -473,7 +473,7 @@ flex-direction: column;
 /* Text styles */
 .text-white {
   color: white;
-  padding-left: 20px;
+  padding: left 25px;
 }
 
 
