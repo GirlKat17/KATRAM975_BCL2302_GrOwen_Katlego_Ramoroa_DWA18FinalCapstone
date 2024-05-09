@@ -44,7 +44,7 @@ const RandomImageCarousel = () => {
                   <div key={index} className="col-md-3">
                     <img src={imageItem.image} className="d-block w-100" alt={`Slide ${groupIndex}-${index}`} />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>{imageItem.title}</h5>
+                    
                     </div>
                   </div>
                 ))}

@@ -472,14 +472,12 @@ flex-direction: column;
 
 /* Text styles */
 .text-white {
-  color: white;
+
   padding: left 25px;
 }
 
 
-.text-white {
-  color:whitesmoke;
-}
+
 
 .title {
   font-size: 20px;
@@ -502,7 +500,7 @@ flex-direction: column;
   justify-content: space-between;
   width: 100%;
   padding: 10px 20px;
-  background-color: #F0F0F0;
+  background-color: #151414;
 }
 
 .main-content {
@@ -526,13 +524,33 @@ img{
   background-color: black;
  
 }
-.podcast-tile p {
-  font-size: 14px;
-  margin-top: 5px; 
-  color: #878585;
-margin-right: 950px;
-  flex: 0 0 50%;
-  padding: 0 15px;
+.podcast-tile {
+  padding-top: 50px;
+  height: 300px;
+ 
+}
+.column {
+
+   float: left;
+  width: 50%;
+  height: 300px; /* Should be removed. Only for demonstration */
+  border: 2px solid #ccc; /* Add border around each grid item */
+  box-sizing: border-box;
+
+  margin-bottom: 40px; /* Add space between grid items */
+ 
+}
+
+.containerGrid {
+  display:flex;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-column-gap: 20px; /* Adjust the gap between columns */
+padding-left: 20px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+gap: 20px; 
+
+
 }
 
 

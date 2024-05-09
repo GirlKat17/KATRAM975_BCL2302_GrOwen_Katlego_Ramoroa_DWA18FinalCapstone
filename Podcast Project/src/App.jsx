@@ -164,14 +164,14 @@ const PodcastApp = () => {
 
             // Display all my shows upon Login, my podcast page
 
-            <div className="" key={show.id} >
-              <div className="">
+            <div className="column" key={show.id} >
+              <div className="containerGrid">
                 <div className="text-white">
                   <img src={show.image} alt={show.title} key={show.id} title={show.title} id={show.id} onClick={handleShowClick} />
                 </div>
-                <div className="podcast-tile p">
-                  <div className=" text-white">
-                    <h5 className="text-white">{show.title}</h5>
+                <div className="podcast-tile">
+                  <div className=" ">
+                    <h5 className="">{show.title}</h5>
                     {/*  added my read more component  */}
 
                     <ReadMoreButton className=""
@@ -180,14 +180,14 @@ const PodcastApp = () => {
                     />
                     <span className="pop">Seasons: {show.seasons}</span>
                     <span>{show.genres.map((genreId) => genreTitleMapping[genreId]).join(', ')}</span>
-                    <p className="text-white"><small className="">Date: {new Date(show.updated).toLocaleDateString()}</small></p>
+                    <p className=""><small className="">Date: {new Date(show.updated).toLocaleDateString()}</small></p>
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-  
+
       </div>
     );
   }
@@ -225,7 +225,7 @@ const PodcastApp = () => {
       {showFav !== 'favouritePhase' &&
         <>
           {/* This my page for showing all the season and episodes  */}
-          <div className="container">
+          <div className="">
             <button onClick={() => setSelectedShow(null)}>Back to Show List</button>
             <h2>{selectedShow.title}</h2>
             {selectedShow.seasons.map((season) => (
